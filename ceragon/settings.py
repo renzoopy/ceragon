@@ -14,6 +14,13 @@ ALLOWED_HOSTS = config.get("ALLOWED_HOSTS").split(",")
 
 
 INSTALLED_APPS = [
+    "unfold",
+    "unfold.contrib.filters",
+    "unfold.contrib.forms",
+    "unfold.contrib.inlines",
+    "unfold.contrib.import_export",
+    "unfold.contrib.guardian",
+    "unfold.contrib.simple_history",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -124,4 +131,13 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
     ),
+}
+
+
+UNFOLD = {
+    "SITE_TITLE": "Ceragon Challenge",
+    "SITE_HEADER": "Technical Challenge",
+    "SITE_SUBHEADER": "Ceragon Library",
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": False,
 }

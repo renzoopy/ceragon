@@ -11,3 +11,4 @@ django-cors-headers = "*"
 djangorestframework-camel-case = "*"
 drf-yasg = {extras = ["validation"], version = "*"}
 python-dotenv = "*"
+django-unfold = "*"
