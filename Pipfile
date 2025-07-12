@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "~=3.2.7"
+djangorestframework = "*"
+psycopg2 = "==2.9.9"
+django-cors-headers = "*"
+djangorestframework-camel-case = "*"
+drf-yasg = {extras = ["validation"], version = "*"}
+python-dotenv = "*"
