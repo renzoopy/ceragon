@@ -7,9 +7,11 @@ class AuthorSerializer(serializers.ModelSerializer):
     Serializer for Author model.
     """
 
+    book_count = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Author
-        fields = ("id", "first_name", "last_name", "birth_date", "bio")
+        fields = ("id", "first_name", "last_name", "birth_date", "bio", "book_count")
 
 
 class BookSerializer(serializers.ModelSerializer):
