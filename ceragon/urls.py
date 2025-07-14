@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, re_path, include
+from django.conf.urls.i18n import i18n_patterns
 from django.conf import settings
 from django.views.generic.base import RedirectView
 from drf_yasg.views import get_schema_view
@@ -15,6 +16,10 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path("i18n/", include("django.conf.urls.i18n")),
+]
+
+i18n_urlpatterns = i18n_patterns(
     path("admin/", admin.site.urls),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",
@@ -27,13 +32,15 @@ urlpatterns = [
         name="schema-swagger-ui",
     ),
     path("", include("core.urls")),
-]
+)
 
 if settings.DEBUG:
-    urlpatterns += [
+    i18n_urlpatterns += [
         path(
             "",
             RedirectView.as_view(pattern_name="schema-swagger-ui"),
             name="go-to-docs",
         )
     ]
+
+urlpatterns += i18n_urlpatterns

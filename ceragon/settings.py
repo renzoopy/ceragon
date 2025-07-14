@@ -1,5 +1,6 @@
 from pathlib import Path
 from dotenv import dotenv_values
+from django.utils.translation import gettext_lazy as _
 
 config = dotenv_values(".env")
 
@@ -31,11 +32,13 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "core",
+    "django_filters",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -91,7 +94,7 @@ DATABASES = {
 }
 
 
-LANGUAGE_CODE = "es"
+LANGUAGE_CODE = "en"
 
 TIME_ZONE = "America/Asuncion"
 
@@ -141,4 +144,16 @@ UNFOLD = {
     "SITE_SUBHEADER": "Ceragon Library",
     "SHOW_HISTORY": True,
     "SHOW_VIEW_ON_SITE": False,
+    "SHOW_LANGUAGES": True,
+    "SIDEBAR": {
+        "show_search": False,
+        "show_all_applications": True,
+    },
 }
+
+LANGUAGES = (
+    ("es", _("Spanish")),
+    ("de", _("German")),
+    ("en", _("English")),
+)
+LOCALE_PATHS = [BASE_DIR / "locale"]
