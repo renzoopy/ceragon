@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-13 23:53-0300\n"
+"POT-Creation-Date: 2025-07-14 02:52-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\ceragon\settings.py:150
+#: .\ceragon\settings.py:142
+msgid "Ceragon Challenge"
+msgstr "Desafío Ceragon"
+
+#: .\ceragon\settings.py:143
+msgid "Technical Challenge"
+msgstr "Desafío Técnico"
+
+#: .\ceragon\settings.py:144
+msgid "Ceragon Library"
+msgstr "Biblioteca Ceragon"
+
+#: .\ceragon\settings.py:157
 msgid "Spanish"
 msgstr "Español"
 
-#: .\ceragon\settings.py:151
+#: .\ceragon\settings.py:158
 msgid "German"
 msgstr "Alemán"
 
-#: .\ceragon\settings.py:152
+#: .\ceragon\settings.py:159
 msgid "English"
 msgstr "Inglés"
 

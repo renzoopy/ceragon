@@ -139,16 +139,18 @@ REST_FRAMEWORK = {
 
 
 UNFOLD = {
-    "SITE_TITLE": "Ceragon Challenge",
-    "SITE_HEADER": "Technical Challenge",
-    "SITE_SUBHEADER": "Ceragon Library",
+    "SITE_TITLE": _("Ceragon Challenge"),
+    "SITE_HEADER": _("Technical Challenge"),
+    "SITE_SUBHEADER": _("Ceragon Library"),
     "SHOW_HISTORY": True,
-    "SHOW_VIEW_ON_SITE": False,
+    "SHOW_VIEW_ON_SITE": True,
     "SHOW_LANGUAGES": True,
     "SIDEBAR": {
         "show_search": False,
         "show_all_applications": True,
     },
+    "VIEW_ON_SITE_TEXT": "Prueba",
+    "SHOW_BACK_BUTTON": False,
 }
 
 LANGUAGES = (
