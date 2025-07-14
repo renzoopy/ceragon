@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from core.models import Author, Book
-from core.serializers import AuthorSerializer, BookSerializer
+from core.serializers import AuthorSerializer, BookSerializer, BookReadSerializer
 from core.filters import AuthorFilter, BookFilter
 
 
@@ -29,6 +29,11 @@ class BookViewSet(viewsets.ModelViewSet):
     filterset_class = BookFilter
     search_fields = ["title", "isbn", "authors__first_name", "authors__last_name"]
     ordering_fields = ["title", "published_at"]
+
+    def get_serializer_class(self):
+        if self.action in ["list", "retrieve"]:
+            return BookReadSerializer
+        return BookSerializer
 
 
 class TopAuthorsAPIView(APIView):

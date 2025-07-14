@@ -16,15 +16,32 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 class BookSerializer(serializers.ModelSerializer):
     """
-    Serializer for Book model.
-    Shows nested authors on read,
-    and accepts list of author IDs on write.
+    Serializer used for creating and updating Book instances.
+    Accepts a list of author IDs for the 'authors' field.
     """
 
-    authors = AuthorSerializer(many=True, read_only=True)
-    author_ids = serializers.PrimaryKeyRelatedField(
-        queryset=Author.objects.all(), many=True, write_only=True, source="authors"
+    authors = serializers.PrimaryKeyRelatedField(
+        queryset=Author.objects.all(), many=True, write_only=True
     )
+
+    class Meta:
+        model = Book
+        fields = (
+            "title",
+            "isbn",
+            "published_at",
+            "description",
+            "authors",
+        )
+
+
+class BookReadSerializer(serializers.ModelSerializer):
+    """
+    Read-only serializer for Book model.
+    Returns nested author data for the 'authors' field.
+    """
+
+    authors = AuthorSerializer(many=True)
 
     class Meta:
         model = Book
@@ -35,5 +52,4 @@ class BookSerializer(serializers.ModelSerializer):
             "published_at",
             "description",
             "authors",
-            "author_ids",
         )
